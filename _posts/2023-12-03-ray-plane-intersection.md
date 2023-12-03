@@ -9,14 +9,6 @@ image:
   alt: Ray-plane interesction
 ---
 
-## Table of Contents
-1. [Introduction](#introduction)
-2. [Derivation](#derivation)
-	- [Algebraic derivation](#algebraic-derivation)
-	- [Geometric derivation](#geometric-derivation)
-3. [Usage](#usage)
-4. [Plane Fun Facts](#plane-fun-facts)
-
 ## Introduction
 
 The humble plane, a flat, infinitely thin surface that extends infinitely. It might not seem much, but it's used everywhere for ray-intersections, from AABBs, to voxels, triangle meshes, BVHs, convex polyhedrons and many more. One could even say it is the building block of raytracing. Today we will derive an intersection of a ray with a plane.

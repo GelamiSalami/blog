@@ -4,6 +4,9 @@ date: 2023-12-03 17:30:00 +0800
 categories: [Blog]
 tags: [raytracing, ray-intersection, plane]
 math: true
+image:
+  path: /assets/img/posts/2023-12-03/geogebra-ray-plane-intersection.png
+  alt: Ray-plane interesction
 ---
 
 ## Table of Contents

@@ -133,6 +133,33 @@ $$ t = -\frac {(O - Q) \cdot \hat N} {\hat D \cdot \hat N} $$
 
 $$ t = -\frac {O \cdot \hat N - d} {\hat D \cdot \hat N} $$
 
+- The derivation above assume that the normal is a unit/normalized vector for simplicity, but the formula also works when the normal is unnormalized. This is due to its length canceling out as they appear in the numerator and denominator.
+
+    Substituting the unnormalized normal $ \vec N $ as the normalized vector multiplied by its length $ \vec N = k \hat N $:
+
+$$ t = -\frac {O \cdot \vec N} {\hat D \cdot \vec N} $$
+
+$$ t = -\frac {O \cdot (k \hat N)} {\hat D \cdot (k \hat N)} $$
+
+$$ t = -\frac {O \cdot (\cancel{k} \hat N)} {\hat D \cdot (\cancel{k} \hat N)} $$
+
+- If the ray direction is also unnormalized, its length $ k $ would cancel out during the ray equation. Do note though that the resulting ray parameter $ t $ would be scaled by its inverse length $ \frac{1}{k} $. This might be an issue when you are using the ray parameter for something that requires its actual length.
+
+    Substituting the unnormalized ray direction as $ \vec D = k \hat D $ in both the ray and plane equations:
+
+$$ t = -\frac {O \cdot \hat N} {\vec D \cdot \hat N} $$
+
+$$ t = -\frac {O \cdot \hat N} {(k \hat D) \cdot \hat N} $$
+
+$$ P = O + \vec D t $$
+
+$$ P = O + (k \hat D) t $$
+
+$$ P = O + (k \hat D) (-\frac {O \cdot \hat N} {(k \hat D) \cdot \hat N}) $$
+
+$$ P = O + (\cancel{k} \hat D) (-\frac {O \cdot \hat N} {(\cancel{k} \hat D) \cdot \hat N}) $$
+
+
 As we have seen, there is quite a bit more to planes as simple as they seems. <br>
 Stay tuned on the next part where we extend this using multiple planes to intersect boxes. Seeya! 🐸
 

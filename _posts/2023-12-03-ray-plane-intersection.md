@@ -1,5 +1,5 @@
 ---
-title: "Raytracing Primitive Intersections: The Humble Plane"
+title: "Raytracing Intersections: The Plane"
 date: 2023-12-03 17:30:00 +0800
 categories: [Blog]
 tags: [raytracing, ray-intersection, plane]
@@ -9,9 +9,9 @@ image:
   alt: Ray-plane interesction
 ---
 
-## Introduction
+The humble plane, a flat, infinitely thin surface that extends infinitely. It might not seem much, but it's used everywhere for ray-intersections, from AABBs, to voxels, triangle meshes, BVHs, convex polyhedrons and many more. One could even say it is the building block of raytracing.
 
-The humble plane, a flat, infinitely thin surface that extends infinitely. It might not seem much, but it's used everywhere for ray-intersections, from AABBs, to voxels, triangle meshes, BVHs, convex polyhedrons and many more. One could even say it is the building block of raytracing. Today we will derive an intersection of a ray with a plane.
+Today, we will derive an intersection of a ray with a plane, and then build up to its applications in the subsequent posts.
 
 ## Derivation
 
@@ -113,9 +113,9 @@ float t = rayPlaneIntersection(rayOrigin, rayDir, planeNormal);
 vec3 position = rayOrigin + rayDir * t;
 ```
 
-## Plane Fun Facts
+## Notes
 
-- The ray does not intersect the plane when the ray origin is outside the plane and the ray is pointing away from it. This is the sign of the ray parameter $ t $ as seen from the code above.
+- We can detect when the ray does not intersect the plane when both the ray origin is outside the plane $ O \cdot \hat N > 0 $ and the ray direction is pointing away from it $ \hat D \cdot \hat N > 0 $, or the ray origin is inside plane $ O \cdot \hat N < 0 $ and the ray direction is pointing away from it $ \hat D \cdot \hat N < 0 $. This check simplifies to $ t < 0 $ as seen from the code above.
 
 - We can tell what side of the plane we are interescting from the sign of the dot product of the ray direction and the normal. If $ D \cdot \hat N $ is $ < 0 $, then we are intersecting the front face, otherwise the back face.
 
@@ -133,8 +133,8 @@ $$ t = -\frac {(O - Q) \cdot \hat N} {\hat D \cdot \hat N} $$
 
 $$ t = -\frac {O \cdot \hat N - d} {\hat D \cdot \hat N} $$
 
-As we have seen, as simple as the plane is there is quite a bit more to them. <br>
-Stay tuned on the next part where we extend this using multiple planes to intersect boxes! Seeya! 🐸
+As we have seen, there is quite a bit more to planes as simple as they seems. <br>
+Stay tuned on the next part where we extend this using multiple planes to intersect boxes. Seeya! 🐸
 
 [^1]: [Dot product basics](https://sites.math.washington.edu/~king/coursedir/m445w04/notes/vector/dotproduct.html), [Dot product - Wikipedia](https://en.wikipedia.org/wiki/Dot_product#Properties)
 [^2]: [Scalar projection - Wikipedia](https://en.wikipedia.org/wiki/Scalar_projection)
